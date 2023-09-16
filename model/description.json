@@ -1,0 +1,319 @@
+{
+    "command": "/usr/local/lib/python3.10/dist-packages/ipykernel_launcher.py -f /root/.local/share/jupyter/runtime/kernel-042ee461-f7b5-4ec4-91e5-a41c036b0c64.json",
+    "compute": {
+        "gpu_type": "Tesla T4",
+        "gpus_per_node": 1,
+        "num_nodes": 1
+    },
+    "config": {
+        "adapter": {
+            "alpha": 16,
+            "bias_type": "none",
+            "dropout": 0.05,
+            "pretrained_adapter_weights": null,
+            "r": 8,
+            "type": "lora"
+        },
+        "backend": null,
+        "base_model": "meta-llama/Llama-2-7b-chat-hf",
+        "defaults": {
+            "text": {
+                "decoder": {
+                    "fc_activation": "relu",
+                    "fc_bias_initializer": "zeros",
+                    "fc_dropout": 0.0,
+                    "fc_layers": null,
+                    "fc_norm": null,
+                    "fc_norm_params": null,
+                    "fc_output_size": 256,
+                    "fc_use_bias": true,
+                    "fc_weights_initializer": "xavier_uniform",
+                    "input_size": null,
+                    "max_new_tokens": null,
+                    "num_fc_layers": 0,
+                    "pretrained_model_name_or_path": "",
+                    "tokenizer": "hf_tokenizer",
+                    "type": "text_extractor",
+                    "vocab_file": ""
+                },
+                "encoder": {
+                    "skip": false,
+                    "type": "passthrough"
+                },
+                "loss": {
+                    "class_similarities": null,
+                    "class_similarities_temperature": 0,
+                    "class_weights": null,
+                    "confidence_penalty": 0,
+                    "robust_lambda": 0,
+                    "type": "next_token_softmax_cross_entropy",
+                    "unique": false,
+                    "weight": 1.0
+                },
+                "preprocessing": {
+                    "cache_encoder_embeddings": false,
+                    "compute_idf": false,
+                    "computed_fill_value": "<UNK>",
+                    "fill_value": "<UNK>",
+                    "lowercase": true,
+                    "max_sequence_length": 256,
+                    "missing_value_strategy": "fill_with_const",
+                    "most_common": 20000,
+                    "ngram_size": 2,
+                    "padding": "right",
+                    "padding_symbol": "<PAD>",
+                    "pretrained_model_name_or_path": null,
+                    "prompt": {
+                        "retrieval": {
+                            "index_name": null,
+                            "k": 0,
+                            "model_name": null,
+                            "type": null
+                        },
+                        "task": null,
+                        "template": null
+                    },
+                    "sequence_length": null,
+                    "tokenizer": "space_punct",
+                    "unknown_symbol": "<UNK>",
+                    "vocab_file": null
+                }
+            }
+        },
+        "generation": {
+            "bad_words_ids": null,
+            "begin_suppress_tokens": null,
+            "bos_token_id": null,
+            "diversity_penalty": 0.0,
+            "do_sample": false,
+            "early_stopping": false,
+            "encoder_repetition_penalty": 1.0,
+            "eos_token_id": null,
+            "epsilon_cutoff": 0.0,
+            "eta_cutoff": 0.0,
+            "exponential_decay_length_penalty": null,
+            "force_words_ids": null,
+            "forced_bos_token_id": null,
+            "forced_decoder_ids": null,
+            "forced_eos_token_id": null,
+            "guidance_scale": null,
+            "length_penalty": 1.0,
+            "max_length": 32,
+            "max_new_tokens": 256,
+            "max_time": null,
+            "min_length": 0,
+            "min_new_tokens": null,
+            "no_repeat_ngram_size": 0,
+            "num_beam_groups": 1,
+            "num_beams": 1,
+            "pad_token_id": null,
+            "penalty_alpha": null,
+            "remove_invalid_values": false,
+            "renormalize_logits": false,
+            "repetition_penalty": 1.0,
+            "sequence_bias": null,
+            "suppress_tokens": null,
+            "temperature": 0.1,
+            "top_k": 50,
+            "top_p": 1.0,
+            "typical_p": 1.0,
+            "use_cache": true
+        },
+        "hyperopt": null,
+        "input_features": [
+            {
+                "active": true,
+                "column": "instruction",
+                "encoder": {
+                    "skip": false,
+                    "type": "passthrough"
+                },
+                "name": "instruction",
+                "preprocessing": {
+                    "cache_encoder_embeddings": false,
+                    "compute_idf": false,
+                    "computed_fill_value": "<UNK>",
+                    "fill_value": "<UNK>",
+                    "lowercase": true,
+                    "max_sequence_length": null,
+                    "missing_value_strategy": "fill_with_const",
+                    "most_common": 20000,
+                    "ngram_size": 2,
+                    "padding": "left",
+                    "padding_symbol": "<PAD>",
+                    "pretrained_model_name_or_path": "meta-llama/Llama-2-7b-chat-hf",
+                    "sequence_length": null,
+                    "tokenizer": "hf_tokenizer",
+                    "unknown_symbol": "<UNK>",
+                    "vocab_file": null
+                },
+                "proc_column": "instruction_PTQGNe",
+                "tied": null,
+                "type": "text"
+            }
+        ],
+        "ludwig_version": "0.8.3",
+        "model_parameters": null,
+        "model_type": "llm",
+        "output_features": [
+            {
+                "active": true,
+                "class_similarities": null,
+                "column": "json_answer",
+                "decoder": {
+                    "fc_activation": "relu",
+                    "fc_bias_initializer": "zeros",
+                    "fc_dropout": 0.0,
+                    "fc_layers": null,
+                    "fc_norm": null,
+                    "fc_norm_params": null,
+                    "fc_output_size": 256,
+                    "fc_use_bias": true,
+                    "fc_weights_initializer": "xavier_uniform",
+                    "input_size": null,
+                    "max_new_tokens": 256,
+                    "num_fc_layers": 0,
+                    "pretrained_model_name_or_path": "meta-llama/Llama-2-7b-chat-hf",
+                    "tokenizer": "hf_tokenizer",
+                    "type": "text_extractor",
+                    "vocab_file": ""
+                },
+                "default_validation_metric": "loss",
+                "dependencies": [],
+                "input_size": null,
+                "loss": {
+                    "class_similarities": null,
+                    "class_similarities_temperature": 0,
+                    "class_weights": null,
+                    "confidence_penalty": 0,
+                    "robust_lambda": 0,
+                    "type": "next_token_softmax_cross_entropy",
+                    "unique": false,
+                    "weight": 1.0
+                },
+                "name": "json_answer",
+                "num_classes": null,
+                "preprocessing": {
+                    "cache_encoder_embeddings": false,
+                    "compute_idf": false,
+                    "computed_fill_value": "<UNK>",
+                    "fill_value": "<UNK>",
+                    "lowercase": true,
+                    "max_sequence_length": null,
+                    "missing_value_strategy": "drop_row",
+                    "most_common": 20000,
+                    "ngram_size": 2,
+                    "padding": "left",
+                    "padding_symbol": "<PAD>",
+                    "pretrained_model_name_or_path": "meta-llama/Llama-2-7b-chat-hf",
+                    "sequence_length": null,
+                    "tokenizer": "hf_tokenizer",
+                    "unknown_symbol": "<UNK>",
+                    "vocab_file": null
+                },
+                "proc_column": "json_answer_Ua7NLT",
+                "reduce_dependencies": "sum",
+                "reduce_input": "sum",
+                "type": "text"
+            }
+        ],
+        "preprocessing": {
+            "global_max_sequence_length": null,
+            "oversample_minority": null,
+            "sample_ratio": 1.0,
+            "split": {
+                "probabilities": [
+                    0.7,
+                    0.1,
+                    0.2
+                ],
+                "type": "random"
+            },
+            "undersample_majority": null
+        },
+        "prompt": {
+            "retrieval": {
+                "index_name": null,
+                "k": 0,
+                "model_name": null,
+                "type": null
+            },
+            "task": null,
+            "template": "Below is a input that describes an expense. Write a response in json format that appropriately completes the request.\nResponse is a json string with fields - account_type (CREDIT or DEBIT), category, sub_category, third_party - person who gave to got the money (Amount in Indian Rupees).\nGenerate appropriate response json string for the input expense. Response must be in only json string format strictly.\n\n### Input:\n{instruction}\n\n### Response:\n"
+        },
+        "quantization": {
+            "bits": 4,
+            "bnb_4bit_compute_dtype": "float16",
+            "bnb_4bit_quant_type": "nf4",
+            "bnb_4bit_use_double_quant": true,
+            "llm_int8_has_fp16_weight": false,
+            "llm_int8_threshold": 6.0
+        },
+        "trainer": {
+            "base_learning_rate": 0.0,
+            "batch_size": 1,
+            "bucketing_field": null,
+            "checkpoints_per_epoch": 0,
+            "compile": false,
+            "early_stop": 5,
+            "effective_batch_size": "auto",
+            "epochs": 9,
+            "eval_batch_size": 2,
+            "evaluate_training_set": false,
+            "gradient_accumulation_steps": 16,
+            "gradient_clipping": {
+                "clipglobalnorm": 0.5,
+                "clipnorm": null,
+                "clipvalue": null
+            },
+            "increase_batch_size_eval_metric": "loss",
+            "increase_batch_size_eval_split": "training",
+            "increase_batch_size_on_plateau": 0,
+            "increase_batch_size_on_plateau_patience": 5,
+            "increase_batch_size_on_plateau_rate": 2.0,
+            "learning_rate": 0.0004,
+            "learning_rate_scaling": "linear",
+            "learning_rate_scheduler": {
+                "decay": null,
+                "decay_rate": 0.96,
+                "decay_steps": 10000,
+                "eta_min": 0,
+                "reduce_eval_metric": "loss",
+                "reduce_eval_split": "training",
+                "reduce_on_plateau": 0,
+                "reduce_on_plateau_patience": 10,
+                "reduce_on_plateau_rate": 0.1,
+                "staircase": false,
+                "t_0": null,
+                "t_mult": 1,
+                "warmup_evaluations": 0,
+                "warmup_fraction": 0.01
+            },
+            "max_batch_size": 1099511627776,
+            "optimizer": {
+                "amsgrad": false,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "type": "adam",
+                "weight_decay": 0.0
+            },
+            "regularization_lambda": 0.0,
+            "regularization_type": "l2",
+            "should_shuffle": true,
+            "skip_all_evaluation": false,
+            "steps_per_checkpoint": 0,
+            "train_steps": null,
+            "type": "finetune",
+            "use_mixed_precision": false,
+            "validation_field": "json_answer",
+            "validation_metric": "loss"
+        }
+    },
+    "data_format": "<class 'pandas.core.frame.DataFrame'>",
+    "ludwig_version": "0.8.3",
+    "random_seed": 42,
+    "torch_version": "2.0.1+cu118"
+}
