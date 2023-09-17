@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.api import router as api_router
+from dotenv import load_dotenv
 import modal
 
+load_dotenv()
 app = FastAPI()
 
 stub = modal.Stub("expense-tracker")
@@ -20,7 +22,7 @@ app.add_middleware(
 
 app.include_router(api_router)
 
-@stub.function(image=image, gpu="any", mounts=[modal.Mount.from_local_dir("./src/models", remote_path="/root/src/models")])
+@stub.function(image=image, gpu="A100", mounts=[modal.Mount.from_local_dir("./src/models", remote_path="/root/src/models")])
 @modal.asgi_app()
 def fastapi_app():
     return app
