@@ -3,8 +3,8 @@ import json
 
 from src.utils import load_model
 
-def get_expense(user_prompt: str):
-    model = load_model()
+async def get_expense(user_prompt: str):
+    model = await load_model()
     data = pd.DataFrame([{
         'instruction': user_prompt
     }])

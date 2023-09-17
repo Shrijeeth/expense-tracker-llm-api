@@ -13,7 +13,7 @@ router = APIRouter(
 @router.post("/")
 async def predict(request: predict_dto):
     try:
-        expense_json = get_expense(request.user_prompt)
+        expense_json = await get_expense(request.user_prompt)
         return JSONResponse({
             "success": True,
             "data": expense_json
