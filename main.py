@@ -29,7 +29,8 @@ app.add_middleware(
 app.include_router(api_router)
 
 @stub.function(
-        gpu="a100", 
+        gpu=modal.gpu.A100(count=2),
+        cpu=8,
         memory=16384,
         secret=modal.Secret.from_name("expense-tracker-token"), 
         mounts=[modal.Mount.from_local_dir("./src/models", remote_path="/root/src/models")]

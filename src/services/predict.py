@@ -1,10 +1,11 @@
 import pandas as pd
 import json
 
-from src.utils import load_model
+from src.utils import ModelSingleton
 
 async def get_expense(user_prompt: str):
-    model = await load_model()
+    model_singleton = ModelSingleton()
+    model = await model_singleton.load_model()
     data = pd.DataFrame([{
         'instruction': user_prompt
     }])
