@@ -1,7 +1,11 @@
 from ludwig.api import LudwigModel
 
+model = None
+
 async def load_model():
-    model = LudwigModel.load('./src/models/expense_tracker_llm')
+    global model
+    if model is None:
+        model = LudwigModel.load('./src/models/expense_tracker_llm')
     return model
 
 def download_llama_2():
