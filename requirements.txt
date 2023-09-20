@@ -4,8 +4,9 @@ modal == 0.52.3439
 numpy == 1.25.2
 python-multipart == 0.0.6
 uvicorn == 0.23.2
-ludwig[llm] == 0.8.3
 pandas == 2.1.0
 python-dotenv == 1.0.0
 accelerate == 0.23.0
 bitsandbytes == 0.40.2
+peft == 0.5.0
+torch == 2.0.1
