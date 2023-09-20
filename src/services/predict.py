@@ -1,8 +1,6 @@
 import torch
 import json
 
-from src.utils import ModelSingleton
-
 async def get_prompt(user_prompt):
     template = f"Below is a input that describes an expense. Write a response in json format that appropriately completes the request.\nResponse is a json string with fields - account_type (CREDIT or DEBIT), category, sub_category, reason (detailed reason if provided with context), third_party - person who gave to got the money (Amount in Indian Rupees).\nGenerate appropriate response json string for the input expense. Response must be in only json string format strictly.\n\n### Input:\n{user_prompt}\n\n### Response:\n"
     return template
