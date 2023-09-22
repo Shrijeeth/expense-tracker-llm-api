@@ -4,7 +4,7 @@ from routes.api import router as api_router
 from dotenv import load_dotenv
 import modal
 
-from src.utils import download_llama_2
+from src.utils import download_llama_2, load_model
 
 load_dotenv()
 app = FastAPI()
@@ -25,6 +25,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.on_event(event_type="startup")
+async def startup_event():
+    await load_model("Fduv/Expense-Tracker-Llama-V2-Instruction_Fine_Tuned")
 
 app.include_router(api_router)
 
