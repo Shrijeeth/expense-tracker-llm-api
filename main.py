@@ -9,9 +9,12 @@ from src.utils import download_llama_2, load_model
 load_dotenv()
 app = FastAPI()
 
-image = modal.Image.from_registry(
-        "nvidia/cuda:12.1.0-cudnn8-runtime-ubuntu22.04",
-        add_python="3.10"
+image = modal.Image.micromamba().micromamba_install(
+    "cudatoolkit=11.7",
+    "cudnn=8.1.0",
+    "cuda-nvcc",
+    "scipy",
+    channels=["conda-forge", "nvidia"],
     ).pip_install_from_requirements(
         requirements_txt=r"./requirements.txt"
     ).run_function(download_llama_2, secret=modal.Secret.from_name("expense-tracker-token"), mounts=[modal.Mount.from_local_dir("./src/models", remote_path="/root/src/models")])
@@ -32,7 +35,7 @@ async def startup_event():
 app.include_router(api_router)
 
 @stub.function(
-        gpu="a100", 
+        gpu="any",
         secret=modal.Secret.from_name("expense-tracker-token"), 
         mounts=[modal.Mount.from_local_dir("./src/models", remote_path="/root/src/models")]
 )
