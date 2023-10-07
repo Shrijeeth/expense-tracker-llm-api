@@ -1,8 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.api import router as api_router
+from src.utils import load_creds
 from dotenv import load_dotenv
 import modal
+import os
+import google.generativeai as palm
 
 from src.utils import download_llama_2, load_model
 
@@ -30,7 +33,8 @@ app.add_middleware(
 
 @app.on_event(event_type="startup")
 async def startup_event():
-    await load_model("Fduv/Expense-Tracker-Llama-V2-Instruction_Fine_Tuned")
+    creds = load_creds()
+    palm.configure(credentials=creds)
 
 app.include_router(api_router)
 

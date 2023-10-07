@@ -127,6 +127,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+client_secret*.json
+token.json
 
 # Spyder project settings
 .spyderproject
