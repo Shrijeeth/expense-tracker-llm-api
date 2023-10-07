@@ -62,5 +62,7 @@ async def get_expense(user_prompt: str):
         return response
     except Exception as error:
         print(error)
-        response = await get_expense_from_model(user_prompt)
-        return response
+        if os.getenv("IS_LOCAL_MODEL_REQUIRED") == 1:
+            response = await get_expense_from_model(user_prompt)
+            return response
+        raise error
