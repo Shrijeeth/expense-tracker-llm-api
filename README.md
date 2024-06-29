@@ -1,1 +1,1 @@
-# expense-tracker-llm-api
+# Expense Tracker LLM
